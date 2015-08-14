@@ -9,5 +9,8 @@
     "firefox": ">=33.0a1",
     "fennec": ">=33.0a1"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^1.2.0"
+  }
 }
