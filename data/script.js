@@ -1,7 +1,7 @@
 self.port.on("fillForm", function() {
 
-	$("input#j_username").val("");
-	$("input#j_password").val("");
+	$("input#j_username").val(username);
+	$("input#j_password").val(password);
 
 	//all inputs
 	var allInputs = $("input");
