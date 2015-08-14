@@ -1,7 +1,7 @@
 self.port.on("fillForm", function() {
 
-	$("input#j_username").val(username);
-	$("input#j_password").val(password);
+	$("input#j_username").val(ENVUSERNAME);
+	$("input#j_password").val(ENVPASSWORD);
 
 	//all inputs
 	var allInputs = $("input");
@@ -115,7 +115,7 @@ self.port.on("fillForm", function() {
 
 	//all select lists
 	$.each(allSelects, function(index, value) {
-		var selectId = $(value).attr('id');
+		var selectId = $(value).attr('id').replace(".", "\\.");
 		var parent = $(value).parent();
 		var selLength = value.length;
 
@@ -140,9 +140,9 @@ self.port.on("fillForm", function() {
 				$('#'+ selectId + ' :nth-child(2)').prop('selected', true);
 
 			} else if (label.indexOf("start") > -1 && label.indexOf("date") > -1) {
-				console.log(value[randomOption]);
+
 				//select month from dropdown
-				$(value).val(value[randomOption]);
+				$('#'+ selectId + ' :nth-child(' + randomOption.toString() + ')').prop('selected', true);
 				$(value).next().next().val(2000);
 
 			} else if (label.indexOf("end") > -1 && label.indexOf("date") > -1) {
